@@ -272,7 +272,7 @@
                     
                     // Generate catch-up fragments
                     const timePassed = Date.now() - lastUpdate;
-                    const fragmentsToGenerate = Math.floor(timePassed / 100);
+                    const fragmentsToGenerate = Math.floor(timePassed / 75);
                     
                     if (fragmentsToGenerate > 0 && fragmentsToGenerate < 50000) {
                         generateCatchup(fragmentsToGenerate);
@@ -292,7 +292,7 @@
                         x: state.x,
                         y: state.y,
                         opacity: Math.random() * 0.5 + 0.5,
-                        birth: Date.now() - (count - i) * 100
+                        birth: Date.now() - (count - i) * 75
                     });
                 }
             }
@@ -367,7 +367,7 @@
                     ripples.push({ ...frag, id: Math.random() });
                     updateStats();
                 }
-            }, 100);
+            }, 75);
         }
 
         function stopGeneration() {
@@ -419,7 +419,7 @@
                 const progress = Math.min(age / lifespan, 1);
                 
                 const radius = progress * 150;
-                const opacity = progress < 1 ? (1 - progress) : 0.04;
+                const opacity = progress < 1 ? (1 - progress) : 0.02;
 
                 ctx.beginPath();
                 ctx.arc(ripple.x, ripple.y, radius, 0, Math.PI * 2);
